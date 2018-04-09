@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+<h1 align="center">Air Quality Index</h1>
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.box {
+    height: 25px;
+    width: 30%;
+    background-color: orange;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+</head>
+<body style="background-image:url(greatsmokybadday.jpg);background-size:100%;background-repeat:no-repeat;background-attachment:fixed"> 
+
+>
+<h3>The quantities of air pollutants today in the lion safari route are as follows:</h3>
+<br><br>
+<div>
+  <form action="/action_page.php">
+    <label for="ph">Weight of pH</label>
+    <input type="text" id="ph" name="ph" value="5">
+
+    <label for="NO3">Weight of NO3</label>
+    <input type="text" id="no3" name="no3" value="2">
+
+    <label for="SO4">Weight of SO4</label>
+    <input type="text" id="so4" name="so4" value="4">
+
+<br>
+<h1>WQI:</h1>
+<script>
+var b=ph.value+no3.value+so4.value;
+var W1=ph.value/b;
+var W2=no3.value/b;
+var W3=so4.value/b;
+var s1=8.5;
+var s2=45;
+var s3=200;
+var q1=(1250/8.5)*100;
+var q2=(1094/45)*100;
+var q3=(2433/200)*100;
+var sl1=W1*q1;
+var sl2=W2*q2;
+var sl3=W3*q3;
+wqi=sl1+sl2+sl3-3;
+document.write(wqi);
+</script>
+</form>
+</div>
+<div class="box">Good Water</div>
+<br><br>
+<h1>WQI scale:</h1>
+<img src="C:\Users\J S N SPANDANA\Desktop\sp.jpg"></img>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Animated route</title>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<meta charset="utf-8">
+	<style>
+		html, body, #map {
+			height: 100%;
+			margin: 0px;
+			padding: 0px
+		}
+	</style>
+	
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=geometry"></script>
+	<script>
+		
+
+		var map; 
+
+		function initialize() {
+			map=new google.maps.Map(document.getElementById("map"), {
+			  center: {lat:12.879270, lng: 80.081771},
+			  zoom: 17,
+			  mapTypeId: google.maps.MapTypeId.ROADMAP
+			});
+
+			autoRefresh(map);
+		}
+		function moveMarker(map, marker, latlng) {
+			marker.setPosition(latlng);
+			map.panTo(latlng);
+		}
+		function autoRefresh(map) {
+			var i, route, marker;
+			
+			route = new google.maps.Polyline({
+				path: [],
+				geodesic : true,
+				strokeColor: '#FF0000',
+				strokeOpacity: 1.0,
+				strokeWeight: 2,
+				editable: false,
+				map:map
+			});
+			
+			marker=new google.maps.Marker({map:map});
+			google.maps.event.addListener(marker,'click',function() {
+    			var infowindow = new google.maps.InfoWindow({
+      			content:"Name: Ravi, Age: 24"
+   			});
+  			infowindow.open(map,marker);
+  			});
+
+			for (i = 0; i < pathCoords.length; i++) {
+				setTimeout(function (coords)
+				{
+					var latlng = new google.maps.LatLng(coords.lat, coords.lng);
+					route.getPath().push(latlng);
+					moveMarker(map, marker, latlng);
+				}, 600 * i, pathCoords[i]);
+			}
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+		 var pathCoords = [
+          	{"lat":12.879270, "lng":80.081771},
+		{"lat":12.879315, "lng":80.082340},
+		{"lat":12.879374, "lng":80.082434},
+		{"lat":12.879377, "lng":80.082596},
+		{"lat":12.879384, "lng":80.082875},
+		{"lat":12.879394, "lng":80.083183},
+		{"lat":12.879409, "lng":80.083482},
+		{"lat":12.879419, "lng":80.083740},
+		{"lat":12.879428, "lng":80.084044},
+		{"lat":12.879442, "lng":80.084034},
+		{"lat":12.879449, "lng":80.084416},
+		{"lat":12.879464, "lng":80.084686},
+		{"lat":12.879457, "lng":80.085138},
+		{"lat":12.879535, "lng":80.085400},
+		{"lat":12.879300, "lng":80.085564},
+		{"lat":12.879023, "lng":80.085761},
+		{"lat":12.878760, "lng":80.085914},
+		{"lat":12.879379, "lng":80.086572},
+		{"lat":12.879438, "lng":80.086896},
+		{"lat":12.879409, "lng":80.087058},
+		{"lat":12.879764, "lng":80.087585},
+		{"lat":12.880041, "lng":80.088020},
+		{"lat":12.880278, "lng":80.088455},
+		{"lat":12.880323, "lng":80.088504},
+		{"lat":12.880633, "lng":80.089073},
+		{"lat":12.880731, "lng":80.089272},
+		{"lat":12.881079, "lng":80.089473},
+		{"lat":12.881314, "lng":80.089771},
+		{"lat":12.881637, "lng":80.090245},
+		{"lat":12.881690, "lng":80.090374},
+		{"lat":12.881797, "lng":80.090509},
+		{"lat":12.882092, "lng":80.090768},
+		{"lat":12.882340, "lng":80.091006},
+		{"lat":12.882521, "lng":80.091178},
+		{"lat":12.882752, "lng":80.091371},
+		{"lat":12.882963, "lng":80.091571},
+		{"lat":12.883185, "lng":80.091788}
+          ];
+
+
+		function initialize1() {
+
+			autoRefresh1(map);
+		}
+		function moveMarker1(map, marker1, latlng1) {
+			marker1.setPosition(latlng1);
+			map.panTo(latlng1);
+		}
+		function autoRefresh1(map) {
+			var i1, route1, marker1;
+			
+			route1 = new google.maps.Polyline({
+				path: [],
+				geodesic : true,
+				strokeColor: 'green',
+				strokeOpacity: 1.0,
+				strokeWeight: 2,
+				editable: false,
+				map:map
+			});
+			
+			marker1=new google.maps.Marker({map:map});
+			google.maps.event.addListener(marker1,'click',function() {
+    			var infowindow1 = new google.maps.InfoWindow({
+      			content:"Name: Bahubali, Age: 90"
+   			});
+  			infowindow1.open(map,marker1);
+  			});
+
+			for (i1 = 0; i1 < pathCoords1.length; i1++) {
+				setTimeout(function (coords1)
+				{
+					var latlng1 = new google.maps.LatLng(coords1.lat, coords1.lng);
+					route1.getPath().push(latlng1);
+					moveMarker(map, marker1, latlng1);
+				}, 600 * i1, pathCoords1[i1]);
+			}
+		}
+		google.maps.event.addDomListener(window, 'load', initialize1);
+		 var pathCoords1 = [
+          	{"lat":12.879376, "lng":80.082408},
+{"lat":12.879376, "lng":80.082551},
+{"lat":12.879388, "lng":80.082753},
+{"lat":12.879391, "lng":80.082986},
+{"lat":12.879399, "lng":80.083184},
+{"lat":12.879407, "lng":80.083401},
+{"lat":12.879410, "lng":80.083615},
+{"lat":12.879426, "lng":80.083824},
+{"lat":12.879437, "lng":80.083953},
+{"lat":12.879441, "lng":80.084093},
+{"lat":12.879445, "lng":80.084219},
+{"lat":12.879452, "lng":80.084374},
+{"lat":12.879454, "lng":80.084512},
+{"lat":12.879461, "lng":80.084636},
+{"lat":12.879470, "lng":80.084765},
+{"lat":12.879476, "lng":80.084891},
+{"lat":12.879484, "lng":80.085007},
+{"lat":12.879490, "lng":80.085150},
+{"lat":12.879505, "lng":80.085262},
+{"lat":12.879537, "lng":80.085373},
+{"lat":12.879599, "lng":80.085351},
+{"lat":12.879673, "lng":80.085318},
+{"lat":12.879758, "lng":80.085298},
+{"lat":12.879862, "lng":80.085292},
+{"lat":12.879971, "lng":80.085284},
+{"lat":12.880076, "lng":80.085275},
+{"lat":12.880167, "lng":80.085268},
+{"lat":12.880255, "lng":80.085261},
+{"lat":12.880343, "lng":80.085256},
+{"lat":12.880431, "lng":80.085253},
+{"lat":12.880554, "lng":80.085247},
+{"lat":12.880653, "lng":80.085241},
+{"lat":12.880732, "lng":80.085238},
+{"lat":12.880790, "lng":80.085235},
+{"lat":12.880857, "lng":80.085234},
+{"lat":12.880919, "lng":80.085234},
+{"lat":12.880990, "lng":80.085227},
+{"lat":12.881180, "lng":80.085224},
+{"lat":12.881241, "lng":80.085229},
+{"lat":12.881271, "lng":80.085225},
+{"lat":12.881337, "lng":80.085241},
+{"lat":12.881386, "lng":80.085256},
+{"lat":12.881492, "lng":80.085324},
+{"lat":12.881547, "lng":80.085406},
+{"lat":12.881586, "lng":80.085462},
+{"lat":12.881619, "lng":80.085518},
+{"lat":12.881942, "lng":80.086088},
+{"lat":12.882070, "lng":80.086347},
+{"lat":12.882143, "lng":80.086454},
+{"lat":12.882206, "lng":80.086594},
+{"lat":12.882248, "lng":80.086733},
+{"lat":12.882321, "lng":80.086873},
+{"lat":12.882373, "lng":80.087023},
+{"lat":12.882436, "lng":80.087152},
+{"lat":12.882499, "lng":80.087259},
+{"lat":12.882561, "lng":80.087388},
+{"lat":12.882634, "lng":80.087559},
+{"lat":12.882687, "lng":80.087688},
+{"lat":12.882760, "lng":80.087849},
+{"lat":12.882812, "lng":80.088053},
+{"lat":12.882791, "lng":80.088235},
+{"lat":12.882760, "lng":80.088439},
+{"lat":12.882708, "lng":80.088568}
+ ];
+
+
+function initialize2() {
+
+			autoRefresh2(map);
+		}
+		function moveMarker2(map, marker2, latlng2) {
+			marker2.setPosition(latlng2);
+			map.panTo(latlng2);
+		}
+		function autoRefresh2(map) {
+			var i2, route2, marker2;
+			
+			route2 = new google.maps.Polyline({
+				path: [],
+				geodesic : true,
+				strokeColor: 'blue',
+				strokeOpacity: 1.0,
+				strokeWeight: 2,
+				editable: false,
+				map:map
+			});
+			
+			marker2=new google.maps.Marker({map:map});
+			google.maps.event.addListener(marker2,'click',function() {
+    			var infowindow2 = new google.maps.InfoWindow({
+      			content:"Name: Aradhya, Age: 17"
+   			});
+  			infowindow2.open(map,marker2);
+  			});
+
+			for (i2 = 0; i2 < pathCoords2.length; i2++) {
+				setTimeout(function (coords2)
+				{
+					var latlng2 = new google.maps.LatLng(coords2.lat, coords2.lng);
+					route2.getPath().push(latlng2);
+					moveMarker(map, marker2, latlng2);
+				}, 600 * i2, pathCoords2[i2]);
+			}
+		}
+		google.maps.event.addDomListener(window, 'load', initialize2);
+		 var pathCoords2 = [
+		{"lat":12.879270, "lng":80.081771},
+		{"lat":12.879315, "lng":80.082340},
+		{"lat":12.879374, "lng":80.082434},
+		{"lat":12.879377, "lng":80.082596},
+		{"lat":12.879384, "lng":80.082875},
+		{"lat":12.879394, "lng":80.083183},
+{"lat":12.879236, "lng":80.085603},
+{"lat":12.879236, "lng":80.085603},
+{"lat":12.879097, "lng":80.085721},
+{"lat":12.878980, "lng":80.085753},
+{"lat":12.878885, "lng":80.085873},
+{"lat":12.878734, "lng":80.085916},
+{"lat":12.878640, "lng":80.086026},
+{"lat":12.878551, "lng":80.086072},
+{"lat":12.878462, "lng":80.086139},
+{"lat":12.878383, "lng":80.086187},
+{"lat":12.878294, "lng":80.086246},
+{"lat":12.878203, "lng":80.086329},
+{"lat":12.878114, "lng":80.086415},
+{"lat":12.878064, "lng":80.086482},
+{"lat":12.878009, "lng":80.086523},
+{"lat":12.877944, "lng":80.086673},
+{"lat":12.877873, "lng":80.086772},
+{"lat":12.877811, "lng":80.086887},
+{"lat":12.877779, "lng":80.086962},
+{"lat":12.877753, "lng":80.087067},
+{"lat":12.877711, "lng":80.087182},
+{"lat":12.877664, "lng":80.087317},
+{"lat":12.877636, "lng":80.087376},
+{"lat":12.877594, "lng":80.087520},
+{"lat":12.877554, "lng":80.087636},
+{"lat":12.877500, "lng":80.087713},
+{"lat":12.877473, "lng":80.087807},
+{"lat":12.877426, "lng":80.087958},
+{"lat":12.877369, "lng":80.088081},
+{"lat":12.877322, "lng":80.088199},
+{"lat":12.877306, "lng":80.088371},
+{"lat":12.877343, "lng":80.088569},
+{"lat":12.877348, "lng":80.088695},
+{"lat":12.877382, "lng":80.088851},
+{"lat":12.877400, "lng":80.089006},
+{"lat":12.877414, "lng":80.089191},
+{"lat":12.877430, "lng":80.089344},
+{"lat":12.877448, "lng":80.089502},
+{"lat":12.877490, "lng":80.089703},
+{"lat":12.877526, "lng":80.089872},
+{"lat":12.877550, "lng":80.090011},
+{"lat":12.877545, "lng":80.090103},
+{"lat":12.877594, "lng":80.090290},
+{"lat":12.877644, "lng":80.090441},
+{"lat":12.877702, "lng":80.090553},
+{"lat":12.877768, "lng":80.090699},
+{"lat":12.877875, "lng":80.090860},
+{"lat":12.877964, "lng":80.091002},
+{"lat":12.878063, "lng":80.091131},
+{"lat":12.878202, "lng":80.091297},
+{"lat":12.878632, "lng":80.091231},
+{"lat":12.878763, "lng":80.091183},
+{"lat":12.878771, "lng":80.091044},
+{"lat":12.878823, "lng":80.090990},
+{"lat":12.878954, "lng":80.090947},
+{"lat":12.879100, "lng":80.090840}
+];
+
+
+
+function initialize3() {
+
+			autoRefresh3(map);
+		}
+		function moveMarker3(map, marker3, latlng3) {
+			marker3.setPosition(latlng3);
+			map.panTo(latlng3);
+		}
+		function autoRefresh3(map) {
+			var i3, route3, marker3;
+			
+			route3 = new google.maps.Polyline({
+				path: [],
+				geodesic : true,
+				strokeColor: 'black',
+				strokeOpacity: 1.0,
+				strokeWeight: 2,
+				editable: false,
+				map:map
+			});
+			
+			marker3=new google.maps.Marker({map:map});
+			google.maps.event.addListener(marker3,'click',function() {
+    			var infowindow3 = new google.maps.InfoWindow({
+      			content:"Name: Tarun, Age: 20"
+   			});
+  			infowindow3.open(map,marker3);
+  			});
+
+			for (i3 = 0; i3 < pathCoords3.length; i3++) {
+				setTimeout(function (coords3)
+				{
+					var latlng3 = new google.maps.LatLng(coords3.lat, coords3.lng);
+					route3.getPath().push(latlng3);
+					moveMarker(map, marker3, latlng3);
+				}, 600 * i3, pathCoords3[i3]);
+			}
+		}
+		google.maps.event.addDomListener(window, 'load', initialize3);
+		 var pathCoords3 = [
+{"lat":12.878867, "lng":80.082491},
+{"lat":12.878932, "lng":80.082827},
+{"lat":12.878764, "lng":80.083106},
+{"lat":12.878597, "lng":80.083363},
+{"lat":12.878430, "lng":80.083675},
+{"lat":12.878524, "lng":80.084050},
+{"lat":12.878702, "lng":80.084275},
+{"lat":12.878994, "lng":80.084361},
+{"lat":12.879057, "lng":80.084726},
+{"lat":12.879055, "lng":80.085077},
+{"lat":12.878997, "lng":80.085372},
+{"lat":12.878987, "lng":80.085764},
+{"lat":12.878751, "lng":80.085925},
+{"lat":12.878610, "lng":80.086215},
+{"lat":12.878411, "lng":80.086322},
+{"lat":12.878254, "lng":80.086461},
+{"lat":12.878061, "lng":80.086687},
+{"lat":12.877909, "lng":80.086950},
+{"lat":12.877810, "lng":80.087191},
+{"lat":12.877852, "lng":80.087363},
+{"lat":12.877962, "lng":80.087615},
+{"lat":12.878129, "lng":80.087765},
+{"lat":12.878422, "lng":80.087840},
+{"lat":12.878657, "lng":80.087996},
+{"lat":12.878908, "lng":80.088108},
+{"lat":12.878913, "lng":80.088350},
+{"lat":12.878966, "lng":80.088623},
+{"lat":12.879044, "lng":80.088918},
+{"lat":12.879180, "lng":80.089181},
+{"lat":12.879311, "lng":80.089417},
+{"lat":12.879431, "lng":80.089669},
+{"lat":12.879593, "lng":80.089964},
+{"lat":12.879719, "lng":80.090190}
+];
+
+
+function initialize4() {
+
+			autoRefresh4(map);
+		}
+		function moveMarker4(map, marker4, latlng4) {
+			marker4.setPosition(latlng4);
+			map.panTo(latlng4);
+		}
+		function autoRefresh4(map) {
+			var i4, route4, marker4;
+			
+			route4 = new google.maps.Polyline({
+				path: [],
+				geodesic : true,
+				strokeColor: 'orange',
+				strokeOpacity: 1.0,
+				strokeWeight: 2,
+				editable: false,
+				map:map
+			});
+			
+			marker4=new google.maps.Marker({map:map});
+			google.maps.event.addListener(marker4,'click',function() {
+    			var infowindow4 = new google.maps.InfoWindow({
+      			content:"Name: Radha, Age: 65"
+   			});
+  			infowindow4.open(map,marker4);
+  			});
+
+			for (i4 = 0; i4 < pathCoords4.length; i4++) {
+				setTimeout(function (coords4)
+				{
+					var latlng4 = new google.maps.LatLng(coords4.lat, coords4.lng);
+					route4.getPath().push(latlng4);
+					moveMarker(map, marker4, latlng4);
+				}, 600 * i4, pathCoords4[i4]);
+			}
+		}
+		google.maps.event.addDomListener(window, 'load', initialize4);
+		 var pathCoords4 = [
+
+
+{"lat":12.878870, "lng":80.081830},
+{"lat":12.878943, "lng":80.082045},
+{"lat":12.878823, "lng":80.082260},
+{"lat":12.878917, "lng":80.082453},
+{"lat":12.878959, "lng":80.082785},
+{"lat":12.878807, "lng":80.082962},
+{"lat":12.878828, "lng":80.083129},
+{"lat":12.878661, "lng":80.083193},
+{"lat":12.878540, "lng":80.083445},
+{"lat":12.878546, "lng":80.083681},
+{"lat":12.878441, "lng":80.083864},
+{"lat":12.878535, "lng":80.084003},
+{"lat":12.878635, "lng":80.084223},
+{"lat":12.878943, "lng":80.084261},
+{"lat":12.878948, "lng":80.084416},
+{"lat":12.879079, "lng":80.084540},
+{"lat":12.879022, "lng":80.084963},
+{"lat":12.879079, "lng":80.085285},
+{"lat":12.879299, "lng":80.085350},
+{"lat":12.879497, "lng":80.085409},
+{"lat":12.879712, "lng":80.085387},
+{"lat":12.879900, "lng":80.085232},
+{"lat":12.880083, "lng":80.085312},
+{"lat":12.880303, "lng":80.085205},
+{"lat":12.880522, "lng":80.085323},
+{"lat":12.880784, "lng":80.085312},
+{"lat":12.880915, "lng":80.085140},
+{"lat":12.881098, "lng":80.085275},
+{"lat":12.881453, "lng":80.085366},
+{"lat":12.881641, "lng":80.085435},
+{"lat":12.881673, "lng":80.085655},
+{"lat":12.881751, "lng":80.085870},
+{"lat":12.881751, "lng":80.085870},
+{"lat":12.881955, "lng":80.086197},
+{"lat":12.882008, "lng":80.086390},
+{"lat":12.882164, "lng":80.086508},
+{"lat":12.882279, "lng":80.086621},
+{"lat":12.882238, "lng":80.086862},
+{"lat":12.882201, "lng":80.086921},
+{"lat":12.882358, "lng":80.086975},
+{"lat":12.882442, "lng":80.087163},
+{"lat":12.882588, "lng":80.087313},
+{"lat":12.882515, "lng":80.087544},
+{"lat":12.882693, "lng":80.087672},
+{"lat":12.882431, "lng":80.087871},
+{"lat":12.882185, "lng":80.088053}
+];
+
+var citymap = {
+        resting: {
+          center: {lat: 12.882461, lng : 80.088768},
+          fillColor : 'purple'
+        },
+        hotel: {
+          center: {lat: 12.879684, lng: 80.090487 },
+          fillColor : 'yellow'
+        }
+      };
+var city;
+var cityCircle;
+
+
+setTimeout(function ()
+				{
+				
+        for (city in citymap) {
+         
+            cityCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: citymap[city].fillColor,
+            fillOpacity: 0.35,
+            map: map,
+            center: citymap[city].center,
+            radius: 100
+          });
+        }	
+				}, 40000);
+
+
+
+
+</script>
+</head>
+<body>
+	<div id="map"></div>
+	
+</body>
+</html>

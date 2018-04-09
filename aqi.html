@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<head>
+<h1 align="center">Air Quality Index</h1>
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.box {
+    height: 25px;
+    width: 30%;
+    background-color: orange;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+</head>
+<body style="background-image:url(greatsmokybadday.jpg);background-size:100%;background-repeat:no-repeat;background-attachment:fixed"> 
+
+>
+<h3>The quantities of air pollutants today in the lion safari route are as follows:</h3>
+<br><br>
+<div>
+  <form action="/action_page.php">
+    <label for="pm2.5">PM2.5-Particulate <2.5 microns(24hr avg)></label>
+    <input type="text" id="pm2.5" name="pm2.5" value="67">
+
+    <label for="pm10">PM10-Particulate <10 microns (24hr avg)></label>
+    <input type="text" id="pm10" name="pm10" value="134">
+
+    <label for="CO">Carbon Monoxide(8hr avg)</label>
+    <input type="text" id="CO" name="CO" value="45">
+
+    <label for="SO2">Sulfur Dioxide(1hr avg)</label>
+    <input type="text" id="SO2" name="SO2" value="32">
+
+    <label for="O3">Ozone(8hr avg)</label>
+    <input type="text" id="O3" name="O3" value="51">
+
+    <label for="NO2">Nitrogen Dioxide(1hr avg)</label>
+    <input type="text" id="NO2" name="NO2" value="78">
+
+<h1>AQI: </h1>
+
+<script>
+var i1=document.getElementById("pm2.5").value;
+
+var i2=document.getElementById("pm10").value;
+
+var i3=document.getElementById("CO").value;
+
+var i4=document.getElementById("SO2").value;
+
+var i5=document.getElementById("O3").value;
+
+var i6=document.getElementById("NO2").value;
+
+var items=[i1,i2,i3,i4,i5,i6];
+
+
+document.write(Math.max(...items));
+</script>
+  </form>
+</div>
+<div class="box">Unhealthy for Sensitive Groups</div>
+<br><br>
+<h1>AQI scale:</h1>
+<img src="C:\Users\J S N SPANDANA\Desktop\AQI_Color_Code_Explanation.jpg"></img>
+</body>
+</html>
